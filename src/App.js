@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         I love coding, and I love this journey. JavaScript rocks!
         </p>
         <a
           className="App-link"
@@ -16,11 +16,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Click here and start your journey on becoming a hacker with us!
         </a>
       </header>
     </div>
   );
 }
-
+{/* <code>src/App.js</code>  */}
 export default App;
