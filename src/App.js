@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Title from "./components/Title";
-import Pokemon from "./components/Pokemon";
+import Pokemon from "./components/Pokemon/Pokemon";
 
 const pokemons = [
   {
@@ -35,41 +35,54 @@ const pokemons = [
   },
 ];
 
-const listPokemons = pokemons.map((aPokemon) => {
-  return (
-    <Pokemon
-      name={aPokemon.name}
-      weight={aPokemon.weight}
-      awesome={aPokemon.awesome}
-      terrifying={aPokemon.terrifying}
-      abilities={aPokemon.abilities}
-    />
-  );
-});
+// const listPokemons = pokemons.map((aPokemon) => {
+//   return (
+//     <Pokemon
+//       name={aPokemon.name}
+//       weight={aPokemon.weight}
+//       awesome={aPokemon.awesome}
+//       terrifying={aPokemon.terrifying}
+//       abilities={aPokemon.abilities}
+//     />
+//   );
+// });
 
 function App() {
   return (
-    <div className="App">
-      <main>
-        <Title content="Pokemon! Gotta catch'em all!" />
-        {listPokemons}
-      </main>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          I love coding, and I love this journey. JavaScript rocks!
-          <code>src/App.js</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Click here and start your journey on becoming a hacker with us!
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      <Title content="Pokemon! Gotta catch'em all!" />
+      <div className="row my-4 mb-5">
+        {pokemons.map((aPokemon) => (
+          <div className="col-md-6 col-lg-4">
+            <Pokemon
+              name={aPokemon.name}
+              weight={aPokemon.weight}
+              awesome={aPokemon.awesome}
+              terrifying={aPokemon.terrifying}
+              abilities={aPokemon.abilities}
+            />
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
 export default App;
+
+// <div className="App">
+//   {/* <header className="App-header">
+//     <img src={logo} className="App-logo" alt="logo" />
+//     <p>
+//       I love coding, and I love this journey. JavaScript rocks!
+//       <code>src/App.js</code>
+//     </p>
+//     <a
+//       className="App-link"
+//       href="https://reactjs.org"
+//       target="_blank"
+//       rel="noopener noreferrer"
+//     >
+//       Click here and start your journey on becoming a hacker with us!
+//     </a>
+//   </header>
+// </div> */}
