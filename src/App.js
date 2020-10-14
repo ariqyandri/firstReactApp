@@ -3,6 +3,10 @@ import React from "react";
 import "./App.css";
 import Title from "./components/Title";
 import Pokemon from "./components/Pokemon/Pokemon";
+import LikeCounter from "./components/LikeCounter";
+import LikeButton from "./components/LikeButton";
+import AwesomeAnimals from "./components/AwesomeAnimals";
+import ArticleList from "./components/ArticleList";
 
 const pokemons = [
   {
@@ -35,54 +39,59 @@ const pokemons = [
   },
 ];
 
-// const listPokemons = pokemons.map((aPokemon) => {
-//   return (
-//     <Pokemon
-//       name={aPokemon.name}
-//       weight={aPokemon.weight}
-//       awesome={aPokemon.awesome}
-//       terrifying={aPokemon.terrifying}
-//       abilities={aPokemon.abilities}
-//     />
-//   );
-// });
+const pokemonCards = pokemons.map((aPokemon) => {
+  return (
+    <div className="col-md-6 col-lg-4">
+      <Pokemon
+        name={aPokemon.name}
+        weight={aPokemon.weight}
+        awesome={aPokemon.awesome}
+        terrifying={aPokemon.terrifying}
+        abilities={aPokemon.abilities}
+      />
+      <LikeButton />
+      <LikeCounter />
+    </div>
+  );
+});
+
+const animals = [
+  {
+    name: "Chicken",
+    level: 1,
+  },
+  {
+    name: "Sloth",
+    level: 2,
+  },
+  {
+    name: "Porcupine",
+    level: 3,
+  },
+  {
+    name: "Killer Whale",
+    level: 4,
+  },
+  {
+    name: "Velociraptor",
+    level: 5,
+  },
+];
+
+const awesomAnimals = animals.map((animal) => {
+  return <AwesomeAnimals name={animal.name} level={animal.level} />;
+});
 
 function App() {
   return (
     <main className="container">
       <Title content="Pokemon! Gotta catch'em all!" />
-      <div className="row my-4 mb-5">
-        {pokemons.map((aPokemon) => (
-          <div className="col-md-6 col-lg-4">
-            <Pokemon
-              name={aPokemon.name}
-              weight={aPokemon.weight}
-              awesome={aPokemon.awesome}
-              terrifying={aPokemon.terrifying}
-              abilities={aPokemon.abilities}
-            />
-          </div>
-        ))}
+      <div>
+        <ArticleList />
       </div>
+      <div className="row my-4 mb-5">{pokemonCards}</div>
+      <ul>{awesomAnimals}</ul>
     </main>
   );
 }
 export default App;
-
-// <div className="App">
-//   {/* <header className="App-header">
-//     <img src={logo} className="App-logo" alt="logo" />
-//     <p>
-//       I love coding, and I love this journey. JavaScript rocks!
-//       <code>src/App.js</code>
-//     </p>
-//     <a
-//       className="App-link"
-//       href="https://reactjs.org"
-//       target="_blank"
-//       rel="noopener noreferrer"
-//     >
-//       Click here and start your journey on becoming a hacker with us!
-//     </a>
-//   </header>
-// </div> */}
